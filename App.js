@@ -2,6 +2,9 @@ const userScore = document.getElementById("user-score");
 const computerScore = document.getElementById("computer-score");
 const computerChoiceImg = document.getElementById("computerChoice");
 const result = document.getElementById("result");
+const restart = document.getElementById("restart");
+
+restart.style.display = "none";
 
 let isGameOver = false;
 
@@ -12,27 +15,35 @@ function rpsGame(choice) {
   var humanChoice = choice.id;
   var compChoice = computerChoice(randomChoice());
   var resultText;
+  result.classList.remove("green");
+  result.classList.remove("red");
+  result.classList.remove("blue");
 
-  if (humanChoice == compChoice) {
-    resultText = "You tied";
-  } else if (humanChoice == "rock" && compChoice == "paper") {
-    resultText = "You Lost";
-    computerScoreValue++;
-  } else if (humanChoice == "rock" && compChoice == "scissor") {
-    resultText = "You Win";
-    userScoreValue++;
-  } else if (humanChoice == "paper" && compChoice == "scissor") {
-    resultText = "You Lost";
-    computerScoreValue++;
-  } else if (humanChoice == "paper" && compChoice == "rock") {
-    resultText = "You Win";
-    userScoreValue++;
-  } else if (humanChoice == "scissor" && compChoice == "rock") {
-    resultText = "You Lost";
-    computerScoreValue++;
-  } else if (humanChoice == "scissor" && compChoice == "paper") {
-    resultText = "You Win";
-    userScoreValue++;
+  if (!isGameOver) {
+    if (humanChoice == compChoice) {
+      resultText = "You tied";
+    } else if (humanChoice == "rock" && compChoice == "paper") {
+      resultText = "You Lost";
+      computerScoreValue++;
+    } else if (humanChoice == "rock" && compChoice == "scissor") {
+      resultText = "You Win";
+      userScoreValue++;
+    } else if (humanChoice == "paper" && compChoice == "scissor") {
+      resultText = "You Lost";
+      computerScoreValue++;
+    } else if (humanChoice == "paper" && compChoice == "rock") {
+      resultText = "You Win";
+      userScoreValue++;
+    } else if (humanChoice == "scissor" && compChoice == "rock") {
+      resultText = "You Lost";
+      computerScoreValue++;
+    } else if (humanChoice == "scissor" && compChoice == "paper") {
+      resultText = "You Win";
+      userScoreValue++;
+    }
+  } else {
+    resultText = "Restart the game";
+    result.classList.add("blue");
   }
 
   if (userScoreValue == 10 || computerScoreValue == 10) {
@@ -46,11 +57,7 @@ function rpsGame(choice) {
     userScoreValue = 0;
     computerScoreValue = 0;
     isGameOver = true;
-  }
-
-  if (!isGameOver) {
-    result.classList.remove("green");
-    result.classList.remove("red");
+    restart.style.display = "block";
   }
 
   userScore.innerHTML = `0${userScoreValue}`;

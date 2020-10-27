@@ -167,18 +167,46 @@
     font-weight: 400;
     color: #eee;
     text-align: center;
-    transition: 0.2s;
+    transition: 0.2s ease;
+}
+
+.restart-div{
+    display: flex;
+    justify-content: center;
+}
+
+.restart{
+    outline: none;
+    border: 2px solid white;
+    border-radius: 6px;
+    color: white;
+    font-size: 1rem;
+    background: transparent;
+    padding: 1em;
+    margin: 1rem auto;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+  
+.restart:hover{
+    transform: scale(1.1);
 }
 
 .green{
     outline: white;
-    color: green;
+    color: rgb(77, 255, 77);
     font-size: 2.5rem;
     transition: 0.2s;
 }
 
 .red{
-    color: red;
+    color: rgb(255, 36, 36);
     font-size: 2.5rem;
+    transition: 0.2s;
+}
+
+.blue{
+    color: rgb(85, 85, 255);
+    font-size: 2rem;
     transition: 0.2s;
 }
