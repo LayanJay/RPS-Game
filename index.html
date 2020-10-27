@@ -15,18 +15,65 @@
       <div class="cover">
         <!-- getting started -->
         <div class="div-game-name">
-          <div class="game-name rock">Rock</div>
-          <div class="game-name paper">Paper</div>
-          <div class="game-name scissor">Scissors</div>
-          <a href="#"><button class="start-btn">Get Started</button></a>
+          <div class="game-name row1">Let's Play</div>
+          <div class="game-name row2">Rock, Paper, Scissors</div>
+          <a href="#game"><button class="start-btn">Get Started</button></a>
         </div>
         <div class="image">
-          <img src="./Assets/coverImg.png" alt="" />
+          <div class="imgRow1"><img src="./Assets/rock.svg" alt="rock" /></div>
+          <div class="imgRow2">
+            <img src="./Assets/paper.svg" alt="paper" /><img
+              src="./Assets/scissor.svg"
+              alt="scissor"
+            />
+          </div>
         </div>
       </div>
-      <div class="game-div">
+      <div class="game-div" id="game">
         <!-- game content -->
+        <div class="user-computer">
+          <div class="user">
+            User
+            <div>Click the choice</div>
+          </div>
+          <div class="score-board">
+            <div class="user-score" id="user-score">00</div>
+            <div class="computer-score" id="computer-score">00</div>
+          </div>
+          <div class="computer">Computer</div>
+        </div>
+        <div class="choice">
+          <div class="user-choice-img">
+            <img
+              src="./Assets/rock.svg"
+              alt="rock"
+              id="rock"
+              onclick="rpsGame(this)"
+            />
+            <img
+              src="./Assets/paper.svg"
+              alt="paper"
+              id="paper"
+              onclick="rpsGame(this)"
+            />
+            <img
+              src="./Assets/scissor.svg"
+              alt="scissor"
+              id="scissor"
+              onclick="rpsGame(this)"
+            />
+          </div>
+          <div class="computer-choice-img">
+            <img
+              src="./Assets/paper.svg"
+              alt="computer-choice"
+              id="computerChoice"
+            />
+          </div>
+        </div>
+        <div class="result" id="result"></div>
       </div>
     </div>
   </body>
+  <script src="App.js"></script>
 </html>

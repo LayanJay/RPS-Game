@@ -1,3 +1,13 @@
+const userScore = document.getElementById("user-score");
+const computerScore = document.getElementById("computer-score");
+const computerChoiceImg = document.getElementById("computerChoice");
+const result = document.getElementById("result");
+
+let isGameOver = false;
+
+userScoreValue = 0;
+computerScoreValue = 0;
+
 function rpsGame(choice) {
   var humanChoice = choice.id;
   var compChoice = computerChoice(randomChoice());
@@ -7,19 +17,45 @@ function rpsGame(choice) {
     resultText = "You tied";
   } else if (humanChoice == "rock" && compChoice == "paper") {
     resultText = "You Lost";
-  } else if (humanChoice == "rock" && compChoice == "scissors") {
+    computerScoreValue++;
+  } else if (humanChoice == "rock" && compChoice == "scissor") {
     resultText = "You Win";
-  } else if (humanChoice == "paper" && compChoice == "scissors") {
+    userScoreValue++;
+  } else if (humanChoice == "paper" && compChoice == "scissor") {
     resultText = "You Lost";
+    computerScoreValue++;
   } else if (humanChoice == "paper" && compChoice == "rock") {
     resultText = "You Win";
-  } else if (humanChoice == "scissors" && compChoice == "rock") {
+    userScoreValue++;
+  } else if (humanChoice == "scissor" && compChoice == "rock") {
     resultText = "You Lost";
-  } else if (humanChoice == "scissors" && compChoice == "paper") {
+    computerScoreValue++;
+  } else if (humanChoice == "scissor" && compChoice == "paper") {
     resultText = "You Win";
+    userScoreValue++;
   }
 
-  document.getElementById("result").innerHTML = resultText;
+  if (userScoreValue == 10 || computerScoreValue == 10) {
+    if (userScoreValue > computerScoreValue) {
+      resultText = "You won the round!!";
+      result.classList.add("green");
+    } else if (computerScoreValue > userScoreValue) {
+      resultText = "You lost the round.. Let's try again.";
+      result.classList.add("red");
+    }
+    userScoreValue = 0;
+    computerScoreValue = 0;
+    isGameOver = true;
+  }
+
+  if (!isGameOver) {
+    result.classList.remove("green");
+    result.classList.remove("red");
+  }
+
+  userScore.innerHTML = `0${userScoreValue}`;
+  computerScore.innerHTML = `0${computerScoreValue}`;
+  result.innerHTML = resultText;
 }
 
 function randomChoice() {
@@ -27,5 +63,5 @@ function randomChoice() {
 }
 
 function computerChoice(number) {
-  return ["rock", "paper", "scissors"][number];
+  return ["rock", "paper", "scissor"][number];
 }
