@@ -5,6 +5,7 @@ const result = document.getElementById("result");
 const restart = document.getElementById("restart");
 
 restart.style.display = "none";
+computerChoiceImg.style.display = "none";
 
 let isGameOver = false;
 
@@ -60,6 +61,9 @@ function rpsGame(choice) {
     restart.style.display = "block";
   }
 
+  computerChoiceImg.style.display = "block";
+  computerChoiceImg.src = `./Assets/${compChoice}.svg`;
+  console.log(compChoice);
   userScore.innerHTML = `0${userScoreValue}`;
   computerScore.innerHTML = `0${computerScoreValue}`;
   result.innerHTML = resultText;
