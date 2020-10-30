@@ -10,4 +10,6 @@ I decided to try out this RPS game with the computer. Here are some features..
 - Scores will be calculated while playing.
 - Winner will be displayed when the round is over.
 
+![Screenshot](screenshot.png)
+
 **Let's play Rock Paper Scissor!**
